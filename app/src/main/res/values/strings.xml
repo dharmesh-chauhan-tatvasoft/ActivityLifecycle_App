@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ActivityLifecycle</string>
+    <string name="view_in_gridview">View Logs in GridView</string>
+    <string name="logs">logs</string>
+    <string name="app_created">App created</string>
+    <string name="app_on_start">App in onStart</string>
+    <string name="app_on_resume">App in onResume</string>
+    <string name="app_on_pause">App in onPause</string>
+    <string name="app_on_stop">App in onStop</string>
+    <string name="app_on_destroy">App destroyed</string>
+    <string name="share_logs">Share Logs</string>
+</resources>
