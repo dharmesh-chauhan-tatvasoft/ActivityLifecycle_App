@@ -3,15 +3,13 @@ package com.example.activitylifecycle
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
-import android.widget.Toast
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
+import java.text.SimpleDateFormat
+import java.util.ArrayList
+import java.util.Date
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
     private val lifecycleLogs = mutableListOf<String>()
@@ -31,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.btn_next_screen).setOnClickListener {
             val intent = Intent(this, ActivityLifecycleGrid::class.java)
-            intent.putStringArrayListExtra(getString(R.string.logs), ArrayList(lifecycleLogs))
+            intent.putStringArrayListExtra(Constants.LOGS, ArrayList(lifecycleLogs))
             startActivity(intent)
         }
 
@@ -64,8 +62,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun logEvent(event: String) {
-        val timestamp = SimpleDateFormat("MM/dd/yyyy HH:mm:ss", Locale.getDefault()).format(Date())
-        lifecycleLogs.add("$event at $timestamp")
+        val timestamp = SimpleDateFormat(Constants.DATE_FORMAT, Locale.getDefault()).format(Date())
+        lifecycleLogs.add("$event ${Constants.AT} $timestamp")
         adapter.notifyDataSetChanged()
     }
 

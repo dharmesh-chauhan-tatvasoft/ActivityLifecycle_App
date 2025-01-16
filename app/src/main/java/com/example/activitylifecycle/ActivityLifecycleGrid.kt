@@ -17,7 +17,7 @@ class ActivityLifecycleGrid : AppCompatActivity() {
 
     private fun setGridViewData() {
         val gridView: GridView = findViewById(R.id.grid_view)
-        val logs = intent.getStringArrayListExtra(getString(R.string.logs)) ?: ArrayList()
+        val logs = intent.getStringArrayListExtra(Constants.LOGS) ?: ArrayList()
         lifecycleLogs.add(logs.toString())
 
 
@@ -31,9 +31,9 @@ class ActivityLifecycleGrid : AppCompatActivity() {
 
     private fun shareLogData() {
         val shareIntent = Intent(Intent.ACTION_SEND).apply {
-            type = "text/plain"
+            type = Constants.TYPE
             putExtra(Intent.EXTRA_TEXT, lifecycleLogs.joinToString("\n"))
         }
-        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_logs)))
+        startActivity(Intent.createChooser(shareIntent, Constants.SHARE_LOGS))
     }
 }
